@@ -4,6 +4,11 @@ var myGamePiece;
 var planetaSelection;
 var planetbSelection;
 
+var planetgravity = 0.5;
+var gravityEarth = 0.5;
+var gravityJupiter = 2.5;
+var gravityPluto = 0.01;
+
 // var planeta = document.getElementById("hi");
 
 function initGame() {
@@ -41,6 +46,7 @@ var myGameArea = {
 }
 
 function component(width, height, color, x, y, type) {
+    console.log("this" , planetgravity);
     this.type = type;
     this.width = width;
     this.height = height;
@@ -48,7 +54,7 @@ function component(width, height, color, x, y, type) {
     this.y = y;    
     this.speedX = 0;
     this.speedY = 0;    
-    this.gravity = 0.05;
+    this.gravity = planetgravity;
     this.gravitySpeed = 0;
     this.update = function() {
         ctx = myGameArea.context;
@@ -56,7 +62,7 @@ function component(width, height, color, x, y, type) {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
     this.newPos = function() {
-        this.gravitySpeed += this.gravity;
+        this.gravitySpeed += planetgravity;
         this.x += this.speedX;
         this.y += this.speedY + this.gravitySpeed;
         this.hitBottom();
@@ -75,8 +81,15 @@ function updateGameArea() {
     myGamePiece.update();
 }
 
-function planetaChange(){
-  console.log("planetaChange");
+function planetaChange(e){
+  console.log("planetaChange", e);
+  if(e === "earth"){
+    this.planetgravity = gravityEarth;
+  } else if (e === "jupiter") {
+    this.planetgravity = gravityJupiter;
+  } else if (e === "pluto") {
+    this.planetgravity = gravityPluto;
+  }
 }
 
 function dropthemic() {

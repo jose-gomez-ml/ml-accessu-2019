@@ -113,6 +113,9 @@ function updateGameArea() {
 }
 
 function planetaChange(e){
+  myGameArea.stop();
+  myGameArea.clear();
+  initGame();
   console.log("planetaChange", e);
   if(e === "earth"){
     this.planetgravity = audioRate = gravityEarth;
@@ -136,6 +139,13 @@ function planetaChange(e){
     // }
   });
   // sound.rate = planetgravity;
+}
+
+function resetGame(){
+  console.log("resetGame");
+  myGameArea.stop();
+  myGameArea.clear();
+  initGame();
 }
 
 function dropthemic() {

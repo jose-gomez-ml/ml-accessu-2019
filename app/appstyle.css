@@ -1,5 +1,5 @@
 .planetbox {
-  width: 45%;
+  width: 85%;
   border: gray 1px solid;
   margin: 15px;
 }
@@ -11,4 +11,8 @@ body {
 .planetcontainer {
   display: flex;
 
+}
+
+.readoutarea{
+  margin:10px;
 }

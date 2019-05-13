@@ -1,6 +1,6 @@
 // vars
 var myGamePiece;
-var planetaSelection;
+var planetaSelection = 'earth';
 var planetbSelection;
 
 var planetgravity = 0.5;
@@ -93,8 +93,14 @@ function component(width, height, color, x, y, type) {
           sound.stop();
           soundLand.play();
           myGameArea.stop();
+          landBottom();
       }
   }
+}
+
+function landBottom(){
+  console.log("landBottom");
+  populateSummaryText('Your mic dropped on ' + planetaSelection + ' in 3.27 seconds!');
 }
 
 function updateGameArea() {
@@ -107,6 +113,7 @@ function planetaChange(e){
   myGameArea.stop();
   myGameArea.clear();
   initGame();
+  planetaSelection = e;
   if(e === "earth"){
     this.planetgravity = audioRate = gravityEarth;
     audioRate = 1.0;
@@ -127,15 +134,21 @@ function planetaChange(e){
   });
 }
 
+function populateSummaryText(text) {
+  document.getElementById('summarytext').innerHTML = text;
+}
+
 function resetGame(){
   console.log("resetGame");
   myGameArea.stop();
   myGameArea.clear();
   initGame();
+  populateSummaryText("");
 }
 
 function dropthemic() {
   console.log("dropthemic");
   myGameArea.start();
   sound.play();
+  populateSummaryText("dropping mic!");
 }

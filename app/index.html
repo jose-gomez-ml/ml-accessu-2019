@@ -11,13 +11,13 @@
 </head>
 <body onload="initGame()">
   
-  <h1> Droppin' Mics on Planets</h1>
+  <h1>Droppin' Mics on Planets</h1>
   <p class="p1">let's compare objects falling with gravity on three different planets.</p>
 
   <div id="hi" class="planetcontainer">
     <div id="planeta" class="planetbox">
-      PLANET
-      <select name="planeta" onchange="planetaChange(value)">
+      <label for="planetSelection">Planet</label>
+      <select id="planetSelection" name="planeta" onchange="planetaChange(value)">
         <option value="earth">earth</option>
         <option value="jupiter">jupiter</option>
         <option value="pluto">pluto</option>
@@ -26,15 +26,16 @@
       <div id="planetcanvascontainer">
       </div>
     </div>
-
-    
   </div>
 
   <div class="controlsarea">
-      <button onclick="dropthemic()">DROP THE MIC!</button>
+    <button onclick="dropthemic()">DROP THE MIC!</button>
+    <button onclick="resetGame()">Reset</button>
+  </div>
 
-      <button onclick="resetGame()">Reset</button>
-    </div>
+  <div class="readoutarea">
+    <span id="summarytext" class="summary" aria-live="assertive" aria-atomic="true"></span>
+  </div>
 
 </body>
 </html>

@@ -7,7 +7,30 @@ var planetbSelection;
 var planetgravity = 0.5;
 var gravityEarth = 0.5;
 var gravityJupiter = 2.5;
-var gravityPluto = 0.01;
+var gravityPluto = 0.07;
+var audioRate = gravityEarth;
+
+var sound;
+var soundLand;
+
+// sound
+  sound = new Howl({
+    src: ['short_whoosh.wav'],
+    autoplay: true,
+    rate: gravityEarth,
+    loop: true,
+    volume: 0.5,
+    onend: function() {
+      console.log('Finished!');
+    }
+  });
+
+  soundLand =  new Howl({
+    src: ['woody_click.wav'],
+    autoplay: false,
+    rate: 1,
+    volume: 0.5
+  })
 
 // var planeta = document.getElementById("hi");
 
@@ -27,7 +50,7 @@ var myGameArea = {
     init : function() {
       var planeta = document.getElementById("planetcanvascontainer");
       // this.canvas.width = 480;
-      this.canvas.height = 370;
+      this.canvas.height = 470;
       this.context = this.canvas.getContext("2d");
       console.log(planeta);
       // document.body.appendChild(this.canvas, document.getElementById("planeta"));
@@ -39,6 +62,8 @@ var myGameArea = {
     },
     stop : function() {
         clearInterval(this.interval);
+        sound.stop();
+        // soundLand.stop();
     },    
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -71,7 +96,11 @@ function component(width, height, color, x, y, type) {
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
             this.y = rockbottom;
+            sound.stop();
+            soundLand.play();
+            myGameArea.stop();
         }
+        
     }
 }
 
@@ -79,22 +108,41 @@ function updateGameArea() {
     myGameArea.clear();
     myGamePiece.newPos();
     myGamePiece.update();
+    // sound.rate = 3;
+    // console.log("sdoun", sound.rate);
 }
 
 function planetaChange(e){
   console.log("planetaChange", e);
   if(e === "earth"){
-    this.planetgravity = gravityEarth;
+    this.planetgravity = audioRate = gravityEarth;
+    audioRate = 1.0;
   } else if (e === "jupiter") {
-    this.planetgravity = gravityJupiter;
+    this.planetgravity = audioRate = gravityJupiter;
+    audioRate = 2.2;
   } else if (e === "pluto") {
     this.planetgravity = gravityPluto;
+    audioRate = 0.3;
   }
+  // sound
+  sound = new Howl({
+    src: ['short_whoosh.wav'],
+    autoplay: false,
+    rate: audioRate,
+    loop: true,
+    volume: 0.5,
+    // onend: function() {
+    //   console.log('Finished!');
+    // }
+  });
+  // sound.rate = planetgravity;
 }
 
 function dropthemic() {
   console.log("dropthemic");
   myGameArea.start();
+  // sound.play('first');
+  sound.play();
 }
 
 // startGame();

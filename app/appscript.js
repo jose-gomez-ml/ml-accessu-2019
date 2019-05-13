@@ -108,7 +108,6 @@ function planetaChange(e){
   myGameArea.stop();
   myGameArea.clear();
   initGame();
-  console.log("planetaChange", e);
   if(e === "earth"){
     this.planetgravity = audioRate = gravityEarth;
     audioRate = 1.0;

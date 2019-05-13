@@ -1,5 +1,4 @@
 // vars
-console.log("yo");
 var myGamePiece;
 var planetaSelection;
 var planetbSelection;

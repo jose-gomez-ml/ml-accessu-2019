@@ -3,14 +3,43 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1504.83">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+  <title>Access U 2019</title>
+  <link rel="stylesheet" type="text/css" href="appstyle.css" />
+  <script src="appscript.js"></script>
 </head>
-<body>
-<p class="p1">hello</p>
+<body onload="initGame()">
+  
+  <h1> Droppin' Mics on Planets</h1>
+  <p class="p1">hello</p>
+
+  <div id="hi" class="planetcontainer">
+    <div id="planeta" class="planetbox">
+      PLANET A
+      <select name="planeta" onchange="planetaChange()">
+        <option value="earth">earth</option>
+        <option value="jupiter">jupiter</option>
+        <option value="pluto">pluto</option>
+      </select>
+      <br />
+      <div id="planetcanvascontainer">
+      </div>
+    </div>
+
+    <div id="planetb" class="planetbox">
+      PLANET X
+      <select name="planetb">
+        <option value="earth">earth</option>
+        <option value="jupiter">jupiter</option>
+        <option value="pluto">pluto</option>
+      </select>
+      <br />
+    </div>
+    
+  </div>
+
+  <div class="controlsarea">
+      <button onclick="dropthemic()">DROP THE MIC!</button>
+    </div>
+
 </body>
 </html>

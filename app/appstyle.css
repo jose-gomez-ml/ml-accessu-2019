@@ -1,0 +1,14 @@
+.planetbox {
+  width: 45%;
+  border: gray 1px solid;
+  margin: 15px;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.planetcontainer {
+  display: flex;
+
+}

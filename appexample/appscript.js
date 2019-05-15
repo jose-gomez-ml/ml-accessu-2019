@@ -14,7 +14,7 @@ var soundLand;
 
 // sound
 sound = new Howl({
-  src: ['short_whoosh.wav'],
+  src: ['short_whoosh.mp3'],
   autoplay: true,
   rate: gravityEarth,
   loop: true,
@@ -25,7 +25,7 @@ sound = new Howl({
 });
 
 soundLand =  new Howl({
-  src: ['woody_click.wav'],
+  src: ['woody_click.mp3'],
   autoplay: false,
   rate: 1,
   volume: 0.8 
@@ -126,7 +126,7 @@ function planetaChange(e){
   }
   // sound
   sound = new Howl({
-    src: ['short_whoosh.wav'],
+    src: ['short_whoosh.mp3'],
     autoplay: false,
     rate: audioRate,
     loop: true,

@@ -5,7 +5,7 @@ var audioRate = 1.0;  // 0.1 - 4 changes the rate of playback
 var sound;
 
 sound_whoosh = new Howl({
-  src: ['short_whoosh.wav'],
+  src: ['short_whoosh.mp3'],
   autoplay: true,
   rate: planetgravity,
   loop: true,

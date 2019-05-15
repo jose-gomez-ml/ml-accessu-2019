@@ -4,7 +4,7 @@ var planetgravity = 0.5;
 var audioRate = 1.0;  // 0.1 - 4 changes the rate of playback
 var sound;
 
-sound = new Howl({
+sound_whoosh = new Howl({
   src: ['short_whoosh.wav'],
   autoplay: true,
   rate: planetgravity,
@@ -15,13 +15,13 @@ sound = new Howl({
   }
 });
 // example sound calls
-// sound.play();
-// sound.stop();
+// sound_whoosh.play();
+// sound_whoosh.stop();
 
 
 function initSim() {
   console.log("initSim");
-  theFallingObject = new fallingObject(50, 50, "red", 80, 75);
+  theFallingObject = new fallingObject(50, 50, "green", 80, 75);
   mySimArea.init();
 }
 
